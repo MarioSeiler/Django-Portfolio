@@ -12,7 +12,11 @@ from .utils import (
     deleteTechnology,
     getTechnologyList,
     createTechnology,
-    getProjectList)
+    getProjectList,
+    getProjectDetail,
+    getTechnologySubgroupDetail,
+    getTechnologyFromSubgroupId,
+    getTechnologySubgroupList)
 # Create your views here.
 
 
@@ -20,6 +24,18 @@ from .utils import (
 def getRoutes(request):
 
     routes = [
+        {
+            'Endpoint': '/technologySubgroups/',
+            'method': 'GET',
+            'body': None,
+            'description': 'Returns an array of technology subgroups'
+        },
+        {
+            'Endpoint': '/technologySubgroups/id',
+            'method': 'GET',
+            'body': None,
+            'description': 'Returns a single technologySubgroup object'
+        },
         {
             'Endpoint': '/technologies/',
             'method': 'GET',
@@ -31,6 +47,12 @@ def getRoutes(request):
             'method': 'GET',
             'body': None,
             'description': 'Returns a single technologies object'
+        },
+        {
+            'Endpoint': '/technologies/s/id',
+            'method': 'GET',
+            'body': None,
+            'description': "Gets all technologies with the subgroup from the provided id"
         },
         {
             'Endpoint': '/technologies/create/',
@@ -94,9 +116,36 @@ def getTechnology(request, pk):
     if request.method == 'DELETE':
         return deleteTechnology(request, pk)
 
+@api_view(['GET'])
+def getTechnologiesFromSubgroup(request, fk):
+
+    if request.method == 'GET':
+        return getTechnologyFromSubgroupId(request, fk)
+
 
 @api_view(['GET'])
 def getProjects(request):
 
     if request.method == 'GET':
         return getProjectList(request)
+
+
+@api_view(['GET'])
+def getProject(request, pk):
+
+    if request.method == 'GET':
+        return getProjectDetail(request, pk)
+
+
+@api_view(['GET'])
+def getTechnologySubgroups(request):
+
+    if request.method == 'GET':
+        return getTechnologySubgroupList(request)
+
+
+@api_view(['GET'])
+def getTechnologySubgroup(request, pk):
+
+    if request.method == 'GET':
+        return getTechnologySubgroupDetail(request, pk)

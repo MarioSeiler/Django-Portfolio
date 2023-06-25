@@ -1,13 +1,10 @@
-import { FaBeer } from 'react-icons/fa';
-
 import React from 'react';
 
 
 class Nav extends React.Component{
     render() {
         return (
-            <div className="fixed top-0 left-0 h-screen w-36 m-0 flex flex-col bg-gray-700 text-black shadow-lg">
-                <a href="/home"><NavBarLink text={<FaBeer size="32" />}></NavBarLink></a>
+            <div className="fixed top-0 left-0 w-screen m-0 mx-auto flex bg-main1 shadow-lg justify-end">
                 <a href="/home"><NavBarLink text="Home"></NavBarLink></a>
                 <a href="/about-me"><NavBarLink text="About me"></NavBarLink></a>
                 <a href="/skills"><NavBarLink text="Skills"></NavBarLink></a>
@@ -19,7 +16,9 @@ class Nav extends React.Component{
 };
 
 const NavBarLink = ({text}) => (
-    <div className="sidebar-link">
+    <div className="mr-8 relative flex items-center justify-center 
+    h-16 min-w-full mx-auto shadow-lg bg-main1 text-white hover:text-black font-bold text-base
+    transition delay-75 hover:bg-main5 duration-300 w-24">
         {text}
     </div>
 );

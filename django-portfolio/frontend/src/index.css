@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-  .sidebar-link {
-    @apply relative flex items-center justify-center 
-    h-16 min-w-full mx-auto shadow-lg bg-gray-800 text-white hover:text-black font-bold text-base
-    transition delay-75 hover:bg-indigo-400 duration-300
-  }
 }
 
 body {

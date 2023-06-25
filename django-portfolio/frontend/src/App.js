@@ -11,7 +11,7 @@ const App = () => {
   return ( 
       <div>
         <Nav />
-        <div className='ml-36 h-full'>
+        <div className='mt-12'>
           <Router>
             <PageRouter />
           </Router>

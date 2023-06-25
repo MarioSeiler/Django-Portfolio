@@ -10,16 +10,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: {
-          900: '#202225',
-          800: '#2f3136',
-          700: '#36393f',
-          600: '#4f545c',
-          400: '#d4d7dc',
-          300: '#e3e5e8',
-          200: '#ebedef',
-          100: '#f2f3f5',
-        },
+        main1: "#0f0f0f",
+        main2: "#0f0132",
+        main3: "#3b3dff",
+        main4: "#4867ff",
+        main5: "#81c1f9"
       },
       spacing: {
         88: '22rem',
@@ -27,6 +22,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
   ],
 };

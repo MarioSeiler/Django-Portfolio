@@ -1,38 +1,63 @@
 from rest_framework.response import Response
-from .models import Technology, Project
-from .serializers import ProjectSerializer, TechnologySerializer
+from .models import Technology, Project, TechnologySubgroup
+from .serializers import ProjectSerializer, TechnologySerializer, TechnologySubgroupSerializer
 
 
 def getProjectList(request):
-    notes = Project.objects.all().order_by('-updated')
-    serializer = ProjectSerializer(notes, many=True)
+    projects = Project.objects.all().order_by('-date')
+    serializer = ProjectSerializer(projects, many=True)
+    return Response(serializer.data)
+
+
+def getProjectDetail(request, pk):
+    project = Project.objects.get(id=pk)
+    project.technology = project.technologies.all()
+    serializer = ProjectSerializer(project, many=False)
     return Response(serializer.data)
 
 
 def getTechnologyList(request):
-    notes = Technology.objects.all().order_by('-updated')
-    serializer = TechnologySerializer(notes, many=True)
+    technologies = Technology.objects.all().order_by('-subgroup')
+    serializer = TechnologySerializer(technologies, many=True)
     return Response(serializer.data)
 
 
 def getTechnologyDetail(request, pk):
-    notes = Technology.objects.get(id=pk)
-    serializer = TechnologySerializer(notes, many=False)
+    technologies = Technology.objects.get(id=pk)
+    serializer = TechnologySerializer(technologies, many=False)
     return Response(serializer.data)
+
+def getTechnologyFromSubgroupId(request, fk):
+    technologies = Technology.objects.filter(subgroup=fk)
+    serializer = TechnologySerializer(technologies, many=True)
+    return Response(serializer.data)
+
+
+def getTechnologySubgroupList(request):
+    subgroups = TechnologySubgroup.objects.all().order_by('-name')
+    serializer = TechnologySubgroupSerializer(subgroups, many=True)
+    return Response(serializer.data)
+
+
+def getTechnologySubgroupDetail(request, pk):
+    subgroup = TechnologySubgroup.objects.get(id=pk)
+    serializer = TechnologySubgroupSerializer(subgroup, many=False)
+    return Response(serializer.data)
+
 
 
 def createTechnology(request):
     data = request.data
-    note = Technology.objects.create(
+    technology = Technology.objects.create(
         body=data['body']
     )
-    serializer = TechnologySerializer(note, many=False)
+    serializer = TechnologySerializer(technology, many=False)
     return Response(serializer.data)
 
 def updateTechnology(request, pk):
     data = request.data
-    note = Technology.objects.get(id=pk)
-    serializer = TechnologySerializer(instance=note, data=data)
+    technology = Technology.objects.get(id=pk)
+    serializer = TechnologySerializer(instance=technology, data=data)
 
     if serializer.is_valid():
         serializer.save()
@@ -41,6 +66,6 @@ def updateTechnology(request, pk):
 
 
 def deleteTechnology(request, pk):
-    note = Technology.objects.get(id=pk)
-    note.delete()
-    return Response('Note was deleted!')
+    technology = Technology.objects.get(id=pk)
+    technology.delete()
+    return Response('Technology was deleted!')
