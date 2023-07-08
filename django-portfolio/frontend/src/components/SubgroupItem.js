@@ -16,18 +16,18 @@ const SubgroupItem = ({ subgroup }) => {
         setSkills(data)
     }
   return (
+    <div className = "p-2">
       <div className="bg-white p-8 shadow-lg shadow-slate-200 rounded-lg">  
         <h3 className="py-1 px-2 font-bold">{subgroup.name}</h3>
           <div className="w-full items-center justify-center">
             <div>
-              {skills.map((skill, index) => (
-                <div className="p-2">
-                    <SkillItem key={index} skill={skill} />
-                </div>
+              {skills.map((skill, id) => (
+                  <SkillItem key={id} skill={skill} />
             ))}
             </div>
         </div>  
       </div>
+    </div> 
   )
 }
 

@@ -1,4 +1,5 @@
 {
+  "start": "PORT=3006 react-scripts start",
   "browser": {
   "fs": false,
   "path": false,

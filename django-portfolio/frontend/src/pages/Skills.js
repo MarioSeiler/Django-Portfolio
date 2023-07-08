@@ -20,11 +20,8 @@ const Subgroup = () => {
     return ( 
         <div className='h-full'>
             <div className="p-8 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-            
                 {subgroups.map((subgroup, index) => (
-                    <div className="p-2">
-                        <SubgroupItem key={index} subgroup={subgroup} />
-                    </div>
+                    <SubgroupItem key={index} subgroup={subgroup} />
                 ))}
             </div>
         </div>

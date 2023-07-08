@@ -13,7 +13,6 @@ const Project = () => {
 
         let response = await fetch('http://localhost:8000/rest/projects/')
         let data = await response.json()
-        console.log(data)
         setProjects(data)
     }
 
@@ -22,11 +21,7 @@ const Project = () => {
             <div className="p-8 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1">
             
                 {projects.map((project, index) => (
-                    <div className="p-2">
-                        <div className='hover:hidden=False'>
-                            <ProjectItem key={index} project={project} />
-                        </div>
-                    </div>
+                    <ProjectItem key={index} project={project} />
                 ))}
             </div>
         </div>

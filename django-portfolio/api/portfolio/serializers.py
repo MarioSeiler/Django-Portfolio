@@ -8,16 +8,17 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['url', 'username', 'email', 'groups']
 
-class ProjectSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Project
-        fields = '__all__'
-
-
 class TechnologySerializer(serializers.ModelSerializer):
     class Meta:
         model = Technology
         fields = '__all__'
+
+class ProjectSerializer(serializers.ModelSerializer):
+    technology = TechnologySerializer(many=True, read_only=True)
+    class Meta:
+        model = Project
+        fields = '__all__'
+        depth = 1
 
 class TechnologySubgroupSerializer(serializers.ModelSerializer):
 

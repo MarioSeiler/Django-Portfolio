@@ -5,19 +5,19 @@ import Alert from '@mui/material/Alert';
 function showAlert(id) {
   var divElement = document.getElementById(id);
   if (
-    document.getElementById("errorAlert").classList.contains("invisible") && document.getElementById("successAlert").classList.contains("invisible")) {
-    divElement.classList.remove("invisible");
+    document.getElementById("errorAlert").classNameList.contains("invisible") && document.getElementById("successAlert").classNameList.contains("invisible")) {
+    divElement.classNameList.remove("invisible");
   } else {
-    document.getElementById("errorAlert").classList.add("invisible");
-    document.getElementById("successAlert").classList.add("invisible");
+    document.getElementById("errorAlert").classNameList.add("invisible");
+    document.getElementById("successAlert").classNameList.add("invisible");
     setTimeout(() => {
-        divElement.classList.remove("invisible");
+        divElement.classNameList.remove("invisible");
     }, 500);
   }
 }
 function hideAlert(id) {
   var divElement = document.getElementById(id);
-  divElement.classList.add("invisible");
+  divElement.classNameList.add("invisible");
 
 };
 
@@ -36,8 +36,8 @@ const Contact = () => {
   };
     return ( 
       <div className="h-full p-12">
-      <Alert class="invisible fixed right-4 flex text-green-600 bg-green-300 bg-opacity-90 px-4" id="successAlert" onClose={() => hideAlert("successAlert")}>Email sent successfully!</Alert>
-      <Alert class="invisible fixed right-4 flex text-red-900 bg-red-300 bg-opacity-90 px-4" id="errorAlert" onClose={() => hideAlert("errorAlert")}>Email couldn't be sent!</Alert>
+      <Alert className="invisible fixed right-4 flex text-green-600 bg-green-300 bg-opacity-90 px-4" id="successAlert" onClose={() => hideAlert("successAlert")}>Email sent successfully!</Alert>
+      <Alert className="invisible fixed right-4 flex text-red-900 bg-red-300 bg-opacity-90 px-4" id="errorAlert" onClose={() => hideAlert("errorAlert")}>Email couldn't be sent!</Alert>
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Get in touch</h2>
         <p className="text-lg leading-8 text-gray-600">

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Nav from './components/Nav'
 import PageRouter from './PageRouting'
 import {
@@ -10,12 +9,10 @@ import {
 const App = () => {
   return ( 
       <div>
-        <Nav />
-        <div className='mt-12'>
           <Router>
+          <Nav />
             <PageRouter />
           </Router>
-        </div>
       </div>
     )
 };

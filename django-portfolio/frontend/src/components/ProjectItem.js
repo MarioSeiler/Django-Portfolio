@@ -9,36 +9,40 @@ function showProjectDetail(id) {
   }
 }
 
-const ProjectItem = ({project}) => {
-  return (
-    <div>
-        <button class="w-full" onClick={() => showProjectDetail(project.name)}><div class="text-2xl w-full text-center border-b-2 p-4">{project.name}</div></button>
-      <div id={project.name} className="m-4 hidden none">
-        <div class="border-gray-200 ">
+const ProjectItem = ({ project }) => {
 
-              <div class="mt-4 text-gray-800">
-                  <div class="flex justify-between my-3">
-                    <div class="w-full font-medium leading-8 text-gray-500 text-md max-w-xxxs">Technologies</div>
-                    <div class="leading-8 text-right max-w-xxs">
-                <div>{project.technologies}</div>
+  return (
+    <div className='p-4'>
+        <button className="w-full bg-white p-8 shadow-lg shadow-slate-200 rounded-lg hover:text-blue1" onClick={() => showProjectDetail(project.name)}><div className="font-bold text-2xl w-full text-center p-4">{project.name}</div>
+      <div id={project.name} className="m-4 hidden">
+        <div className="border-lightGray border-t">
+
+              <div className="mt-4 text-gray-800">
+                  <div className="flex justify-between my-3">
+                    <div className="leading-8 text-gray-500 font-bold text-md">Technologies</div>
+                    <div className="leading-8 w-max">
+                  {project.technologies.map((tech) => (
+          <div className='text-center font-bold text-darkGray1' key={tech.id}>{tech.name}</div>
+        ))}
                     </div>
                   </div>
 
-                  <div class="flex justify-between my-3">
-                    <div class="w-full font-medium leading-8 text-gray-500 text-md max-w-xxxs">Github URL</div>
-                    <div class="leading-8 text-right max-w-xxs">
-                <div>{project.github}</div>
+                  <div className="flex justify-between my-3">
+                    <div className="w-full leading-8 text-gray-500 font-bold text-md max-w-xxxs text-left">Github URL</div>
+                    <div className="leading-8 text-right max-w-xxs">
+                <div><a className="hover:text-blue2 w-max" onclick="return false;" target="_blank" rel="noreferrer" href={project.github}>{project.github}</a></div>
                     </div>
             </div>
-            <div class="flex justify-between my-3">
-                    <div class="w-full font-medium leading-8 text-gray-500 text-md max-w-xxxs">Description</div>
-                    <div class="text-right">
-                <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
+            <div className="flex justify-between my-3">
+                    <div className="w-full text-left leading-8 text-gray-500 font-bold text-md max-w-xxxs">Description</div>
+                    <div className="text-right w-max">
+                  <div>{ project.description }</div>
                     </div>
                   </div>
               </div>
         </div>
-      </div>
+        </div>
+        </button>
       </div>
   )
 }

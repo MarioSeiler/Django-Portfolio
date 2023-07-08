@@ -3,19 +3,28 @@ import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 
 import Home from './pages/Home'
-import AboutMe from './pages/AboutMe'
 import Subgroup from './pages/Skills'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 
 const PageRouter = () => (
     <Routes>
-        <Route exact path='/home' element={<Home/>} />
-        <Route exact path='/about-me' element={<AboutMe/>} />
-        <Route exact path='/skills' element={<Subgroup/>} />
-        <Route exact path='/projects' element={<Projects/>} />
-        <Route exact path='/contact' element={<Contact/>} />
+        <Route exact path='/home' element={<Home />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/skills' element={<Subgroup/>} />
+        <Route path='/projects' element={<Projects/>} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path="*" element={<PageNotFound />} />
     </Routes>
 );
 
+
 export default PageRouter;
+
+function PageNotFound() {
+  	return (
+    	<div className='mt-64 p-8 justify-center w-full h-full text-5xl font-bold'>
+      		<div className='mx-auto max-w-md'>404 Page not found</div>
+    	</div>
+  	);
+}

@@ -10,11 +10,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        main1: "#0f0f0f",
-        main2: "#0f0132",
-        main3: "#3b3dff",
-        main4: "#4867ff",
-        main5: "#81c1f9"
+        "darkGray1": "#333333",
+        "darkGray2": "#666666",
+        "lightGray": "#CCCCCC",
+        "blue1": "#5C9CD8",
+        "blue2": "#89B9E8",
+        "blue3": "#B6D7F8"
       },
       spacing: {
         88: '22rem',

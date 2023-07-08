@@ -11,7 +11,6 @@ def getProjectList(request):
 
 def getProjectDetail(request, pk):
     project = Project.objects.get(id=pk)
-    project.technology = project.technologies.all()
     serializer = ProjectSerializer(project, many=False)
     return Response(serializer.data)
 
