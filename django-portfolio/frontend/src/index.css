@@ -13,9 +13,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-repeat: repeat;
+}
 
-
-
+.spacer {
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+}
+.layer1 {
+  background-image: url("./images/layered-waves-haikei.svg");
 }
 

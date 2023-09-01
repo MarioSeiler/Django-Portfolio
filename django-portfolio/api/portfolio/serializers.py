@@ -25,3 +25,4 @@ class TechnologySubgroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = TechnologySubgroup
         fields = '__all__'
+        depth = 1

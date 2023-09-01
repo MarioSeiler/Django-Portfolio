@@ -8,9 +8,9 @@ import {
 
 const App = () => {
   return ( 
-      <div>
+      <div class="">
           <Router>
-          <Nav />
+        <Nav />
             <PageRouter />
           </Router>
       </div>

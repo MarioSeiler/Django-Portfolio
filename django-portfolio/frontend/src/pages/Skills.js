@@ -13,7 +13,6 @@ const Subgroup = () => {
 
         let response = await fetch('http://localhost:8000/rest/technologySubgroups/')
         let data = await response.json()
-        console.log(data)
         setSubgroups(data)
     }
 

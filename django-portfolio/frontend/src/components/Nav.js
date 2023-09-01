@@ -1,15 +1,25 @@
-import React from 'react';
 import { NavLink } from "react-router-dom";
+import React from "react";
+import MobileNavBar from "./MobileNavBar";
 
+const Nav = () => {
+	
 
-const Nav = () =>{
     return (
-        <div className="top-0 left-0 w-screen m-0 mx-auto flex justify-end">
-            <a href="/home"><NavBarLink text="Home"></NavBarLink></a>
-            <a href="/skills"><NavBarLink text="Skills"></NavBarLink></a>
-            <a href="/projects"><NavBarLink text="Projects"></NavBarLink></a>
-            <a href="/contact"><NavBarLink text="Contact"></NavBarLink></a>
-        </div>  
+        <div>
+            <div className='hidden sm:block'>
+                <div className="top-0 left-0 w-screen m-0 mx-auto flex justify-end">
+                    <div><NavBarLink text="Home"></NavBarLink></div>
+                    <div><NavBarLink text="Skills"></NavBarLink></div>
+                    <div><NavBarLink text="Projects"></NavBarLink></div>
+                    <div><NavBarLink text="Contact"></NavBarLink></div>
+                </div>  
+            </div>
+            <div className='sm:hidden'>
+                <MobileNavBar />
+            </div>
+        </div>
+
     )
 };
 

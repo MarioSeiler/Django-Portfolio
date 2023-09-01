@@ -8,7 +8,6 @@ urlpatterns = [
     path('projects/<str:pk>/', views.getProject, name="project"),
     path('technologies/', views.getTechnologies, name="technologies"),
     path('technologies/<str:pk>/', views.getTechnology, name="technology"),
-    path('technologies/s/<str:fk>/', views.getTechnologiesFromSubgroup, name="technologyFromSubgroup"),
     path('technologySubgroups/', views.getTechnologySubgroups, name="technologySubgroups"),
     path('technologySubgroups/<str:pk>/', views.getTechnologySubgroup, name="technologySubgroup")
 ]

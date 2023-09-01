@@ -18,7 +18,7 @@ const Project = () => {
 
     return ( 
         <div className='h-full'>
-            <div className="p-8 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1">
+            <div className="p-8 2xl:columns-3 md:columns-2 sm-columns-1 space-y-5">
             
                 {projects.map((project, index) => (
                     <ProjectItem key={index} project={project} />

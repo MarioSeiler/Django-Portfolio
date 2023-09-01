@@ -26,11 +26,6 @@ def getTechnologyDetail(request, pk):
     serializer = TechnologySerializer(technologies, many=False)
     return Response(serializer.data)
 
-def getTechnologyFromSubgroupId(request, fk):
-    technologies = Technology.objects.filter(subgroup=fk)
-    serializer = TechnologySerializer(technologies, many=True)
-    return Response(serializer.data)
-
 
 def getTechnologySubgroupList(request):
     subgroups = TechnologySubgroup.objects.all().order_by('-name')

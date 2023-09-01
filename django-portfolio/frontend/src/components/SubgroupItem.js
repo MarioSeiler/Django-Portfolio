@@ -1,29 +1,23 @@
-import React, { useState, useEffect } from 'react'
-import SkillItem from '../components/SkillItem'
+import React from 'react'
 
 const SubgroupItem = ({ subgroup }) => {
 
-    let [skills, setSkills] = useState([])
-
-    useEffect(() => {
-        getSkills()
-    })
-
-    let getSkills = async () => {
-
-        let response = await fetch('http://localhost:8000/rest/technologies/s/'+subgroup.id)
-        let data = await response.json()
-        setSkills(data)
-    }
   return (
     <div className = "p-2">
       <div className="bg-white p-8 shadow-lg shadow-slate-200 rounded-lg">  
         <h3 className="py-1 px-2 font-bold">{subgroup.name}</h3>
           <div className="w-full items-center justify-center">
             <div>
-              {skills.map((skill, id) => (
-                  <SkillItem key={id} skill={skill} />
-            ))}
+              {subgroup.technologies.map((tech) => (
+          <div key={tech.id} className='p-2'>
+          <h3 className="py-1 px-2">{tech.name}</h3>
+          <div className="w-full items-center justify-center">
+              <div className="w-full bg-slate-100 h-4">
+          <div className="bg-blue3 h-full rounded text-xs font-medium py-[1px] text-center" style={{width: tech.mastery+'%'}}></div>
+        </div>
+        </div>
+      </div>
+        ))}
             </div>
         </div>  
       </div>

@@ -15,7 +15,6 @@ from .utils import (
     getProjectList,
     getProjectDetail,
     getTechnologySubgroupDetail,
-    getTechnologyFromSubgroupId,
     getTechnologySubgroupList)
 # Create your views here.
 
@@ -47,12 +46,6 @@ def getRoutes(request):
             'method': 'GET',
             'body': None,
             'description': 'Returns a single technologies object'
-        },
-        {
-            'Endpoint': '/technologies/s/id',
-            'method': 'GET',
-            'body': None,
-            'description': "Gets all technologies with the subgroup from the provided id"
         },
         {
             'Endpoint': '/technologies/create/',
@@ -115,12 +108,6 @@ def getTechnology(request, pk):
 
     if request.method == 'DELETE':
         return deleteTechnology(request, pk)
-
-@api_view(['GET'])
-def getTechnologiesFromSubgroup(request, fk):
-
-    if request.method == 'GET':
-        return getTechnologyFromSubgroupId(request, fk)
 
 
 @api_view(['GET'])
